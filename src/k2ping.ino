@@ -102,7 +102,7 @@ void ping_recv_cb(void *_option, void *_resp) {
   } else {
     success++;
     avg_time += resp->resp_time;
-    if (min_time == 0 || resp->resp_time < min_time) min_time = resp->resp_time;
+    if (success == 1 || resp->resp_time < min_time) min_time = resp->resp_time;
     if (resp->resp_time > max_time) max_time = resp->resp_time;
     total_bytes += resp->bytes;
     lcd.setCursor(0, 1);
