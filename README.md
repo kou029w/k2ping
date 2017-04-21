@@ -1,6 +1,6 @@
 # k2ping
 
-[![Build Status](https://travis-ci.org/kou029w/k2ping.svg?branch=master)](https://travis-ci.org/kou029w/k2ping)
+[![Build Status](https://travis-ci.org/kou029w/k2ping.svg?branch=develop)](https://travis-ci.org/kou029w/k2ping)
 
 安価に製作できるpingでの死活監視装置です。
 
