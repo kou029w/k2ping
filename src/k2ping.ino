@@ -1,20 +1,38 @@
 #include <ESP8266WiFi.h>
+#include <Wire.h>
+#include <LiquidCrystal.h>
 
-// Model: WeMos D1
-#define D0 3
-#define D1 1
-#define D2 16
-#define D3 5
-#define D4 4
-#define D5 14
-#define D6 12
-#define D7 13
-#define D8 0
-#define D9 2
-#define D10 15
+// Digital pins for WeMos D1
+static const uint8_t D[] = {3, 1, 16, 5, 4, 14, 12, 13, 0, 2, 15};
+
+// LCD Keypad Shield for Arduino
+LiquidCrystal lcd(D[8], D[9], D[4], D[5], D[6], D[7]);
 
 void setup() {
-  ;
+  lcd.begin(16, 2);
+
+  WiFi.begin("network-name", "pass-to-network");
+
+  lcd.print("Connecting");
+  lcd.setCursor(0, 1);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+
+    static uint8_t i = 0;
+    lcd.setCursor((i %= 32) % 16, 1);
+    if (i < 16) {
+      lcd.write(0xFF);
+      i++;
+    } else if (i < 32) {
+      lcd.print(" ");
+      i++;
+    }
+  }
+
+  lcd.clear();
+  lcd.print("Connected");
+  lcd.setCursor(0, 1);
+  lcd.print(WiFi.localIP());
 }
 
 void loop() {
