@@ -43,7 +43,7 @@ See also the list of [contributors](https://github.com/kou029w/k2ping/contributo
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the LGPL License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 
