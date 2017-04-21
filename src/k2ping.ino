@@ -109,7 +109,7 @@ void ping_recv_cb(void *_option, void *_resp) {
   }
 
   if (errors + success >= opt->count) {
-    avg_time /= success;
+    if (success > 0) avg_time /= success;
     lcd.clear();
     p((char*)"%4dbyte%3d%%loss", total_bytes, 100 * errors / opt->count);
     lcd.setCursor(0, 2);
