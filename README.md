@@ -31,7 +31,6 @@ cd k2ping
 ### Installing
 
 ```
-pio lib install 1526 # Install the LiquidCrystal library.
 pio run --target upload
 ```
 
